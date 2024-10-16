@@ -1,0 +1,73 @@
+[
+    {
+      "id": "1",
+      "name": "Apple Watch",
+      "image": "/fake data/img/product1.png",
+      "category": "Sports",
+      "pics": 32,
+      "price": "$39",
+      "status": "Published",
+      "createdAt": "14 Jan 2024, 10:30am"
+    },
+    {
+      "id": "2",
+      "name": "Morden Chair",
+      "image": "/fake data/img/product2.png",
+      "category": "Interior",
+      "pics": 10,
+      "price": "$99",
+      "status": "Published",
+      "createdAt": "18 Jan 2024, 12:10am"
+    },
+    {
+      "id": "3",
+      "name": "Reebok Shoes",
+      "image": "/fake data/img/product3.png",
+      "category": "Footwear",
+      "pics": 24,
+      "price": "$49",
+      "status": "Inactive",
+      "createdAt": "24 Jan 2024, 09:10pm"
+    },
+    {
+      "id": "4",
+      "name": "Cosco Volleyball",
+      "image": "/fake data/img/product4.png",
+      "category": "Sports",
+      "pics": 8,
+      "price": "$49",
+      "status": "Published",
+      "createdAt": "08 Feb 2024, 03:30pm"
+    },
+    {
+      "id": "5",
+      "name": "Royal Purse",
+      "image": "/fake data/img/product1.png",
+      "category": "Life Style",
+      "pics": 52,
+      "price": "$89",
+      "status": "Published",
+      "createdAt": "20 Feb 2024, 11:30am"
+    },
+    {
+      "id": "6",
+      "name": "Lipstick",
+      "image": "/fake data/img/product2.png",
+      "category": "Life Style",
+      "pics": 52,
+      "price": "$89",
+      "status": "Published",
+      "createdAt": "20 Feb 2024, 11:30am"
+    },
+    {
+      "id": "7",
+      "name": "Water",
+      "image": "/fake data/img/product3.png",
+      "category": "Life Style",
+      "pics": 52,
+      "price": "$89",
+      "status": "Published",
+      "createdAt": "20 Feb 2024, 11:30am"
+    }
+  ]
+  

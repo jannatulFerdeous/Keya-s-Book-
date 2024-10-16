@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Royal Purse",
+        "image": "/fake data/img/product1.png",
+        "price": "$80",
+        "quantity": 3,
+        "total": "$240",
+        "details": "Pure Leather 100%"
+    },
+    {
+        "name": "Apple Watch",
+        "image": "/fake data/img/product2.png",
+        "price": "$100",
+        "quantity": 1,
+        "total": "$100",
+        "details": "Size-05 (Model 2021)"
+    },
+    {
+        "name": "Cosco Volleyball",
+        "image": "/fake data/img/product3.png",
+        "price": "$20",
+        "quantity": 4,
+        "total": "$80",
+        "details": "Size-04 (Model 2021)"
+    },
+    {
+        "name": "Reebok Shoes",
+        "image": "/fake data/img/product4.png",
+        "price": "$50",
+        "quantity": 10,
+        "total": "$500",
+        "details": "Size-08 (Model 2021)"
+    },
+    {
+        "name": "Morden Chair",
+        "image": "/fake data/img/product5.png",
+        "price": "$70",
+        "quantity": 2,
+        "total": "$140",
+        "details": "Size-Medium (Model 2021)"
+    }
+]
