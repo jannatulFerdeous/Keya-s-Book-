@@ -38,7 +38,7 @@ const bookSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       });
-      
+    
   },
 });
 

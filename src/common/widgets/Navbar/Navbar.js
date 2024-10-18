@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FiSearch, FiHeart, FiShoppingCart, FiUser, FiMenu, FiX } from 'react-icons/fi';
+
+import { FiHeart, FiShoppingCart, FiUser, FiMenu, FiX } from 'react-icons/fi';
 import * as Icons from 'react-icons/fa';
 import logo from "../../../assets/image/logo.png";
 
@@ -8,40 +9,44 @@ const Navbar = () => {
   const navigate = useNavigate(); 
   const [dropdownIndex, setDropdownIndex] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [placeholder, setPlaceholder] = useState('');
 
-  useEffect(() => {
-    const text = 'Search with Book Title..........';
-    let index = 0;
-    const typingEffect = setInterval(() => {
-      setPlaceholder(text.slice(0, index + 1));
-      index++;
-      if (index > text.length) {
-        setPlaceholder('');
-        index = 0;
-      }
-    }, 150);
-
-    return () => clearInterval(typingEffect);
-  }, []);
-
+  // Toggles dropdown menu on and off
   const toggleDropdown = (index) => {
     setDropdownIndex(dropdownIndex === index ? null : index);
   };
 
+  // Toggles mobile menu visibility
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Get icon from react-icons dynamically
   const getIconComponent = (iconName) => {
     const IconComponent = Icons[iconName];
     return IconComponent ? <IconComponent className="inline-block ml-2" /> : null;
   };
 
- 
+  // Navbar items stored in an array
+  const navItems = [
+    { name: 'Home', path: '/' },
+    { name: 'Book', path: '/books' },
+    { name: 'WishList', path: '/wishlist', icon: 'FaHeart' },
+  ];
+
+  // Render the navigation links
+  const renderNavItems = () => (
+    navItems.map((item, index) => (
+      <li key={index} className="relative group">
+        <Link to={item.path} className="text-gray-600 hover:text-green-600 transition duration-200 flex items-center">
+          {item.name}
+          {item.icon && getIconComponent(item.icon)}
+        </Link>
+      </li>
+    ))
+  );
 
   return (
-    <header className="bg-white shadow-md sticky top-0 ">
+    <header className="bg-white shadow-md sticky top-0">
       <nav className="container mx-auto p-4 md:px-8 flex items-center justify-between">
         {/* Logo Section */}
         <div className="flex items-center justify-between w-full md:w-auto">
@@ -56,45 +61,8 @@ const Navbar = () => {
 
         {/* Desktop Navbar Links */}
         <ul className="hidden md:flex md:space-x-6 items-center">
-          <li>
-            <Link to="/"className="text-gray-600 hover:text-green-600 transition duration-200">Home</Link>
-          </li>
-          <li>
-            <a href='#books' className="text-gray-600 hover:text-green-600 transition duration-200">Book</a>
-          </li>
-          <li className="relative group">
-            <button 
-              onClick={() => toggleDropdown(1)} 
-              className="text-gray-600 hover:text-green-600 focus:outline-none transition duration-200"
-            >
-              Genre
-            </button>
-            {dropdownIndex === 1 && (
-              <ul className="absolute mt-2 bg-white text-gray-700 shadow-md rounded-md py-2 z-10">
-                <li><Link to="/genre/a" className="block px-4 py-2 hover:bg-gray-200">a</Link></li>
-                <li><Link to="/genre/b" className="block px-4 py-2 hover:bg-gray-200">b</Link></li>
-              </ul>
-            )}
-          </li>
-          <li>
-            <Link to="/wishlist" className="text-gray-600 hover:text-green-600 flex items-center transition duration-200">
-              WishList
-              {getIconComponent('FaHeart')}
-            </Link>
-          </li>
+          {renderNavItems()}
         </ul>
-
-        {/* Search Bar */}
-        <div className="hidden md:flex items-center w-full md:w-1/3 ml-6">
-          <input
-            type="text"
-            placeholder={placeholder}
-            className="w-full border border-gray-300 rounded-l-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-green-600 transition duration-200"
-          />
-          <button className="bg-green-600 text-white p-3 rounded-r-md hover:bg-green-500 transition duration-200">
-            <FiSearch size={20} />
-          </button>
-        </div>
 
         {/* Icons */}
         <div className="hidden md:flex items-center space-x-6 text-gray-600">
@@ -112,7 +80,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 ">
+        <div className="fixed inset-0 bg-black bg-opacity-50">
           <div className="relative bg-white w-3/4 max-w-sm mx-auto p-6 mt-16 rounded-lg shadow-lg">
             <button 
               className="absolute top-2 right-2 text-gray-600 hover:text-red-600 text-2xl focus:outline-none"
@@ -121,45 +89,14 @@ const Navbar = () => {
               <FiX />
             </button>
             <ul className="space-y-4 mt-8">
-              <li><Link to="/" className="text-gray-600 hover:text-green-600 transition duration-200">Home</Link></li>
-              <li><a href='#books' className="text-gray-600 hover:text-green-600 transition duration-200">Book</a></li>
-              <li className="relative group">
-                <button 
-                  onClick={() => toggleDropdown(1)} 
-                  className="text-gray-600 hover:text-green-600 focus:outline-none transition duration-200 w-full text-left"
-                >
-                  Genre
-                </button>
-                {dropdownIndex === 1 && (
-                  <ul className="bg-white text-gray-700 shadow-md rounded-md mt-2 py-2">
-                    <li><Link to="/genre/a" className="block px-4 py-2 hover:bg-gray-200">a</Link></li>
-                    <li><Link to="/genre/b" className="block px-4 py-2 hover:bg-gray-200">b</Link></li>
-                  </ul>
-                )}
-              </li>
-              <li>
-                <Link to="/wishlist" className="block text-gray-600 hover:text-green-600 transition duration-200">
-                  WishList
-                  {getIconComponent('FaHeart')}
-                </Link>
-              </li>
+              {renderNavItems()}
             </ul>
           </div>
         </div>
       )}
 
-      {/* Mobile Search Bar and Icons */}
-      <div className="md:hidden w-full p-4 bg-white shadow-md flex justify-between items-center ">
-        <div className="flex-1">
-          <input
-            type="text"
-            placeholder={placeholder}
-            className="w-full border border-gray-300 rounded-l-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-green-600 transition duration-200"
-          />
-        </div>
-        <button className="bg-green-600 text-white p-3 rounded-r-md hover:bg-green-500 transition duration-200">
-          <FiSearch size={20} />
-        </button>
+      {/* Mobile Icons */}
+      <div className="md:hidden w-full  p-4 bg-white shadow-md flex justify-between items-center">
         <div className="flex items-center space-x-4 ml-4">
           <Link to="/wishlist" className="text-gray-600 hover:text-green-600 transition duration-200">
             <FiHeart size={24} />
