@@ -1,0 +1,53 @@
+
+[
+    {
+        "id": "A3652",
+        "name": "History Book",
+        "image": "/fake data/img/product1.png",
+        "price": "$50",
+        "originalPrice": "$70",
+        "sell": "450",
+        "originalSell": "550",
+        "status": "Stock"
+    },
+    {
+        "id": "A5002",
+        "name": "Colorful Pots",
+        "image": "/fake data/img/product2.png",
+        "price": "$99",
+        "originalPrice": "$150",
+        "sell": "750",
+        "originalSell": "00",
+        "status": "Out of Stock"
+    },
+    {
+        "id": "A6598",
+        "name": "Pearl Bracelet",
+        "image": "/fake data/img/product3.png",
+        "price": "$199",
+        "originalPrice": "$250",
+        "sell": "280",
+        "originalSell": "220",
+        "status": "Stock"
+    },
+    {
+        "id": "A9547",
+        "name": "Dancing Man",
+        "image": "/fake data/img/product4.png",
+        "price": "$40",
+        "originalPrice": "$49",
+        "sell": "500",
+        "originalSell": "1000",
+        "status": "Out of Stock"
+    },
+    {
+        "id": "A2047",
+        "name": "Fire Lamp",
+        "image": "/fake data/img/product5.png",
+        "price": "$80",
+        "originalPrice": "$59",
+        "sell": "800",
+        "originalSell": "2000",
+        "status": "Out of Stock"
+    }
+]
