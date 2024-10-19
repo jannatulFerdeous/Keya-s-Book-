@@ -7,9 +7,9 @@ import 'aos/dist/aos.css';
 
 
 const About = () => {
-  // Initialize AOS
+ 
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true }); // Animation duration and trigger once
+    AOS.init({ duration: 1000, once: true });
   }, []);
 
   return (
